@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Desplegable</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        /* Estilo del botón */
+        .toggle-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Estilo del formulario */
+        .form-container {
+            display: none; /* Inicialmente oculto */
+            position: absolute;
+            top: -120px; /* Más cerca del botón */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            width: 280px;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .form-container input, .form-container textarea, .form-container button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón para mostrar el formulario -->
+    <button class="toggle-button" onclick="toggleForm()">Mostrar Formulario</button>
+
+    <!-- Formulario desplegable -->
+    <div class="form-container" id="formContainer">
+        <h2>Formulario de Contacto</h2>
+        <form>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo Electrónico" required>
+            <textarea placeholder="Mensaje" rows="4" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <!-- JavaScript para mostrar/ocultar el formulario -->
+    <script>
+        function toggleForm() {
+            const formContainer = document.getElementById('formContainer');
+            if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+                formContainer.style.display = 'block';
+            } else {
+                formContainer.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

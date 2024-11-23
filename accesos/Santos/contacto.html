@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - George's Food</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<style>
+    :root {
+        --primary-color: #f08726e1;
+        --accent-color: #200888;
+        --hover-color: #0e1792;
+        --text-color: #05020c;
+        --heading-color: #FF4500;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0b082e;
+        overflow: auto;
+        height: 100vh;
+    }
+
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 129%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    header, .section {
+        position: relative;
+        z-index: 1;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: var(--accent-color);
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-container img {
+        height: 80px;
+        margin-right: 10px;
+    }
+
+    .logo-container h1 {
+        font-weight: bold;
+        text-shadow: 2px 2px 4px var(--primary-color);
+        margin: 0;
+    }
+
+    nav {
+        display: flex;
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: var(--primary-color);
+        background-color: var(--accent-color);
+        font-size: 1.5rem !important;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--hover-color);
+    }
+
+    .section {
+        padding: 2rem;
+        background-color: rgba(214, 154, 97, 0.8);
+        box-shadow: 0 4px 8px rgba(223, 90, 28, 0.1);
+        margin: 2rem auto;
+        border-radius: 8px;
+        max-width: 1200px;
+    }
+
+    .section h2, .section h3 {
+        color: var(--heading-color);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .section p {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        line-height: 1.8;
+        text-align: justify;
+        margin-bottom: 1.5rem;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .row {
+            flex-direction: column;
+        }
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    /* Ajustes del panel de contacto */
+    .contact-panel {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact-panel h1 {
+        font-size: 2rem;
+        color: var(--heading-color);
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .contact-panel form {
+        margin-top: 1.5rem;
+    }
+
+    .d-flex.justify-content-center {
+        margin-top: 1.5rem;
+    }
+
+</style>
+</head>
+<body>
+<!-- Video de fondo -->
+<video class="video-background" autoplay muted loop>
+    <source src="videos/clasico.mp4" type="video/mp4">
+    Tu navegador no soporta el elemento de video.
+</video>
+<header>
+    <div class="logo-container">
+        <a href="#">
+            <img src="imagenes/logo.jpg" alt="Logo de George's Food">
+        </a>
+        <h1 style="font-family: 'Garamond', serif; font-size: 48px; font-weight: bold; text-align: center; font-style: italic;">
+            GEORGE'S FOOD
+        </h1>
+    </div>
+    <nav>
+        <a href="index.html" class="btn" aria-label="Inicio"><i class="fas fa-home"></i> Inicio</a>
+        <a href="index.html#menu-section" class="btn" aria-label="Menú"><i class="fas fa-utensils"></i> Menú</a>
+        <a href="index.html#promociones" class="btn" aria-label="Promociones"><i class="fas fa-bullhorn"></i> Promociones</a>
+        <a href="servicio.html" class="btn" aria-label="Servicios"><i class="fas fa-concierge-bell"></i> Servicios</a>
+        <a href="contacto.html" class="btn" aria-label="Contacto"><i class="fas fa-phone"></i> Contacto</a>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- Panel de contacto -->
+    <div class="contact-panel">
+        <h1>Contáctanos</h1>
+        <form action="enviar_contacto.php" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre y apellido</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
+            <div class="form-group">
+                <label for="celular">Número de Celular</label>
+                <input type="tel" class="form-control" id="celular" name="celular" required>
+            </div>
+            <div class="form-group">
+                <label for="asunto">Asunto</label>
+                <input type="text" class="form-control" id="asunto" name="asunto" required>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+
+            <div class="d-flex justify-content-center my-2">
+                <!-- Icono de Enviar Email -->
+                <a href="mailto:tu-correo@dominio.com?subject=Asunto&body=Mensaje%20de%20contacto%20aquí" 
+                   class="btn btn-outline-primary mx-2 p-3" 
+                   style="text-decoration: none; font-size: 3rem; color: #007bff; border-radius:100%; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;" 
+                   aria-label="Enviar Email">
+                    <i class="fas fa-paper-plane"></i> <!-- Icono de avión de papel -->
+                </a>
+                
+                <!-- Icono de WhatsApp -->
+                <a href="https://wa.me/60406573?text=Hola%20me%20gustaría%20hacer%20una%20consulta%20sobre%20su%20servicio" 
+                   target="_blank" 
+                   class="btn btn-outline-success mx-2 p-3" 
+                   style="text-decoration: none; font-size: 3rem; color: #25d366; border-radius: 100%; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;" 
+                   aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i> <!-- Icono de WhatsApp -->
+                </a>
+            </div>
+            
+            
+            
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
+
+
